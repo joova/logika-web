@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add/Edit User</h1>
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput placeholder="Username/Email" type="email" [(ngModel)]="data.user.username">
+    </mat-form-field>
+     <mat-form-field>
+        <input matInput placeholder="Kata Sandi" type="password" [(ngModel)]="data.user.password">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Nama Depan" [(ngModel)]="data.user.first_name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Nama Belakang" [(ngModel)]="data.user.last_name">
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data.user" cdkFocusInitial>Add</button>
+</div>
