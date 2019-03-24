@@ -28,14 +28,36 @@ export class UsersComponent implements OnInit {
     this.user = new User();
     
     const dialogRef = this.dialog.open(UserFormDialog, {
-      width: '250px',
+      width: '420px',
       data: {user: this.user}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog add user was closed');
       this.user = result;
-      this.add();
+      console.log('this.user = ');
+      if (this.user) {
+        //console.log(JSON.stringify(this.user));
+        this.add();
+      } 
+    });
+  }
+
+  onSelect(user: User): void {
+    this.user = user;
+    const dialogRef = this.dialog.open(UserFormDialog, {
+      width: '420px',
+      data: {user: this.user}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog edit user was closed');
+      this.user = result;
+      console.log('this.user = ');
+      if (this.user) {
+        //console.log(JSON.stringify(this.user));
+        this.update();
+      } 
     });
   }
 
@@ -43,6 +65,22 @@ export class UsersComponent implements OnInit {
     this.userService.addUser(this.user)
       .subscribe(user => {
         this.users.push(user);
+      });
+  }
+
+  update(): void {
+    this.userService.updateUser(this.user)
+      .subscribe(user => {
+        console.log(JSON.stringify(user));
+      });
+  }
+
+  remove(user: User): void {
+    console.log(`remove user, index = ${user.id}`)
+    this.user = user;
+    this.userService.deleteUser(this.user)
+      .subscribe(user => {
+        this.users = this.users.filter(u => u !== this.user);
       });
   }
 

@@ -27,6 +27,25 @@ export class UserService {
     );
   }
 
+  updateUser(user: User): Observable<User> {
+    const id = user.id;
+    const url = `${this.idmUrl}/user/${id}`;
+    return this.http.put<User>(url, user, httpOptions).pipe(
+      tap((newUser: User) => this.log(`udpate user w/ id=${newUser.id}`)),
+      catchError(this.handleError<User>('addUser'))
+    );
+  }
+
+  deleteUser (user: User): Observable<User> {
+    const id = user.id;
+    const url = `${this.idmUrl}/user/${id}`;
+  
+    return this.http.delete<User>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted user id=${id}`)),
+      catchError(this.handleError<User>('deleteUser'))
+    );
+  }
+
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.idmUrl + "/users")
     .pipe(
