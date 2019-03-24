@@ -10,13 +10,17 @@ import { MatButtonModule, MatIconModule, MatDialogModule, MatFormFieldModule, Ma
 import { HttpClientModule } from '@angular/common/http';
 import { UserFormDialog } from './users/users.form.dialog';
 import { FormsModule } from '@angular/forms';
+import { RolesComponent } from './roles/roles.component';
+import { RoleFormDialog } from './roles/roles.form.dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     UsersComponent,
-    UserFormDialog
+    UserFormDialog,
+    RolesComponent,
+    RoleFormDialog
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,10 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     HttpClientModule
   ],
-  entryComponents: [UserFormDialog],
+  entryComponents: [
+    UserFormDialog,
+    RoleFormDialog
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
