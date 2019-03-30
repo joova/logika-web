@@ -12,6 +12,8 @@ import { UserFormDialog } from './users/users.form.dialog';
 import { FormsModule } from '@angular/forms';
 import { RolesComponent } from './roles/roles.component';
 import { RoleFormDialog } from './roles/roles.form.dialog';
+import { ActionsComponent } from './actions/actions.component';
+import { ActionFormDialog } from './actions/actions.form.dialog';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { RoleFormDialog } from './roles/roles.form.dialog';
     UsersComponent,
     UserFormDialog,
     RolesComponent,
-    RoleFormDialog
+    RoleFormDialog,
+    ActionsComponent,
+    ActionFormDialog
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { RoleFormDialog } from './roles/roles.form.dialog';
   ],
   entryComponents: [
     UserFormDialog,
-    RoleFormDialog
+    RoleFormDialog,
+    UserFormDialog,
+    ActionFormDialog
   ],
   providers: [],
   bootstrap: [AppComponent]
