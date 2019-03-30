@@ -1,0 +1,43 @@
+<br>
+
+<div class="w3-container">
+
+  <div class="w3-bar w3-theme w3-large">
+    <input #text class="w3-bar-item" type="text" placeholder="Search Action.." (keyup.enter)="searchAction(text.value)">
+    <button class="w3-bar-item w3-button" (click)="searchAction(text.value)">
+      <i class="fa fa-search"></i>
+    </button>
+    <button class="w3-bar-item w3-button w3-right" (click)="openFormDialog()">
+      <i class="fa fa-plus"></i>
+    </button>
+  </div>
+
+  <br>
+
+  <p *ngIf="actions?.isEmpty">
+    Nothing to do! Add Actions above.
+  </p>
+
+  <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let action of actions">
+      <td (click)="onSelect(action)">
+        {{action.code}}
+      </td>
+      <td (click)="onSelect(action)">
+        {{action.name}}
+      </td>
+      <td>
+        <button mat-mini-fab (click)="remove(action)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+</div>
