@@ -49,7 +49,7 @@ export class ActionService {
   getActions(): Observable<Action[]> {
     return this.http.get<Action[]>(this.idmUrl + "/actions")
     .pipe(
-      tap(_ => this.log('fetched users')),
+      tap(_ => this.log('fetched actions')),
       catchError(this.handleError<Action[]>('getActions', []))
     );
   }

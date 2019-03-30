@@ -14,6 +14,8 @@ import { RolesComponent } from './roles/roles.component';
 import { RoleFormDialog } from './roles/roles.form.dialog';
 import { ActionsComponent } from './actions/actions.component';
 import { ActionFormDialog } from './actions/actions.form.dialog';
+import { ResourcesComponent } from './resources/resources.component';
+import { ResourceFormDialog } from './resources/resources.form.dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ActionFormDialog } from './actions/actions.form.dialog';
     RolesComponent,
     RoleFormDialog,
     ActionsComponent,
-    ActionFormDialog
+    ActionFormDialog,
+    ResourcesComponent,
+    ResourceFormDialog,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { ActionFormDialog } from './actions/actions.form.dialog';
     UserFormDialog,
     RoleFormDialog,
     UserFormDialog,
-    ActionFormDialog
+    ActionFormDialog,
+    ResourceFormDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

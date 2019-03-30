@@ -1,0 +1,40 @@
+
+<br>
+
+<div class="w3-container">
+
+  <div class="w3-bar w3-theme w3-large">
+    <input #text class="w3-bar-item" type="text" placeholder="Search Resource.." (keyup.enter)="searchResource(text.value)">
+    <button class="w3-bar-item w3-button" (click)="searchResource(text.value)">
+      <i class="fa fa-search"></i>
+    </button>
+    <button class="w3-bar-item w3-button w3-right" (click)="openFormDialog()">
+      <i class="fa fa-plus"></i>
+    </button>
+  </div>
+
+  <br>
+
+  <p *ngIf="resources?.isEmpty">
+    Nothing to do! Add Resources above.
+  </p>
+
+  <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" >
+    <tr>
+      <th>Name</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let resource of resources">
+      <td (click)="onSelect(resource)">
+        {{resource.name}}
+      </td>
+      <td>
+        <button mat-mini-fab (click)="remove(resource)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  
+</div>
