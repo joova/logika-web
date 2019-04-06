@@ -1,4 +1,4 @@
-export class Resource {
+export class Org {
     id: string;
     name: string;
 }

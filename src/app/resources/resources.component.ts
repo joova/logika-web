@@ -76,7 +76,7 @@ export class ResourcesComponent implements OnInit {
   }
 
   remove(resource: Resource): void {
-    console.log(`remove resource, index = ${resource.code}`)
+    console.log(`remove resource, index = ${resource.id}`)
     this.resource = resource;
     this.resourceService.deleteResource(this.resource)
       .subscribe(resource => {

@@ -22,22 +22,22 @@ export class ResourceService {
 
   addResource(resource: Resource): Observable<Resource> {
     return this.http.post<Resource>(this.idmUrl + "/resource", resource, httpOptions).pipe(
-      tap((newResource: Resource) => this.log(`added resource w/ id=${newResource.code}`)),
+      tap((newResource: Resource) => this.log(`added resource w/ id=${newResource.id}`)),
       catchError(this.handleError<Resource>('addResource'))
     );
   }
 
   updateResource(resource: Resource): Observable<Resource> {
-    const id = resource.code;
+    const id = resource.id;
     const url = `${this.idmUrl}/resource/${id}`;
     return this.http.put<Resource>(url, resource, httpOptions).pipe(
-      tap((newResource: Resource) => this.log(`udpate resource w/ id=${newResource.code}`)),
+      tap((newResource: Resource) => this.log(`udpate resource w/ id=${newResource.id}`)),
       catchError(this.handleError<Resource>('addResource'))
     );
   }
 
   deleteResource (resource: Resource): Observable<Resource> {
-    const id = resource.code;
+    const id = resource.id;
     const url = `${this.idmUrl}/resource/${id}`;
   
     return this.http.delete<Resource>(url, httpOptions).pipe(
@@ -49,7 +49,7 @@ export class ResourceService {
   getResources(): Observable<Resource[]> {
     return this.http.get<Resource[]>(this.idmUrl + "/resources")
     .pipe(
-      tap(_ => this.log('fetched resources')),
+      tap(_ => this.log('fetched users')),
       catchError(this.handleError<Resource[]>('getResources', []))
     );
   }

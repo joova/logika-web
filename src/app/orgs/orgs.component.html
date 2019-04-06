@@ -1,0 +1,40 @@
+
+<br>
+
+<div class="w3-container">
+
+  <div class="w3-bar w3-theme w3-large">
+    <input #text class="w3-bar-item" type="text" placeholder="Search Org.." (keyup.enter)="searchOrg(text.value)">
+    <button class="w3-bar-item w3-button" (click)="searchOrg(text.value)">
+      <i class="fa fa-search"></i>
+    </button>
+    <button class="w3-bar-item w3-button w3-right" (click)="openFormDialog()">
+      <i class="fa fa-plus"></i>
+    </button>
+  </div>
+
+  <br>
+
+  <p *ngIf="orgs?.isEmpty">
+    Nothing to do! Add Orgs above.
+  </p>
+
+  <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" >
+    <tr>
+      <th>Name</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let org of orgs">
+      <td (click)="onSelect(org)">
+        {{org.name}}
+      </td>
+      <td>
+        <button mat-mini-fab (click)="remove(org)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  
+</div>
